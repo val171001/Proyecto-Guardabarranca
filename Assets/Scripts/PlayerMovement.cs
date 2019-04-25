@@ -7,6 +7,8 @@ public class PlayerMovement : MonoBehaviour
     public GameObject player;
     public float speed;
 
+    private bool movement = true;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -16,14 +18,16 @@ public class PlayerMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float h = transform.localPosition.x/50;
-        float v = transform.localPosition.y/50; 
+        if (movement)
+        {
+            float h = transform.localPosition.x / 50;
+            float v = transform.localPosition.y / 50;
 
-        player.transform.position += player.transform.forward * speed * v * Time.deltaTime;
+            player.transform.position += player.transform.forward * speed * v * Time.deltaTime;
 
-        player.transform.Rotate(new Vector3(0, h * Time.timeScale, 0));
-
-        Debug.Log(v);
+            player.transform.Rotate(new Vector3(0, h * Time.timeScale, 0));
+        }
 
     }
+
 }
