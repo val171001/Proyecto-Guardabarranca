@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class MiniGamesManager : MonoBehaviour
 {
-
-    public GameObject cover;
-    public Camera cam;
+    public GameObject canvas1;
+    public GameObject mg_example;
 
     private bool done;
     
@@ -22,28 +21,15 @@ public class MiniGamesManager : MonoBehaviour
 
 
     }
-    /*s
-    private void OnCollisionEnter(Collision collision)
- 
-    {
-        if (!done)
-        {
-            cover.transform.position = new Vector3(cam.transform.position.x, cam.transform.position.y - 0.75f,
-                cam.transform.position.z + 0.25f);
 
-            done = true;
-        }
-    
-    }
-    */
     private void OnTriggerEnter(Collider other)
     {
-        if (!done)
+        if (other.tag.Equals("MiniGame"))
         {
-            cover.transform.position = new Vector3(cam.transform.position.x, cam.transform.position.y - 0.75f,
-                cam.transform.position.z + 0.25f);
-
-            done = true;
+            canvas1.SetActive(false);
+            Instantiate(mg_example);
+            Destroy(other);
         }
+ 
     }
 }
