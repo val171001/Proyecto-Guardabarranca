@@ -5,6 +5,7 @@ using UnityEngine;
 public class MiniGamesManager : MonoBehaviour
 {
     public GameObject canvas1;
+    public GameObject jstick;
     public GameObject mg_example;
 
     private bool onGame;
@@ -24,6 +25,7 @@ public class MiniGamesManager : MonoBehaviour
             if (!instance)
             {
                 canvas1.SetActive(true);
+                jstick.SetActive(true);
                 onGame = false;
             }
         }
@@ -35,6 +37,7 @@ public class MiniGamesManager : MonoBehaviour
         if (other.tag.Equals("MiniGame"))
         {
             canvas1.SetActive(false);
+            jstick.SetActive(false);
             Destroy(other.gameObject);
             instance = Instantiate(mg_example);
             onGame = true;
