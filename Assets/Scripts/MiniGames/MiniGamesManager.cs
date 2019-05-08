@@ -7,18 +7,26 @@ public class MiniGamesManager : MonoBehaviour
     public GameObject canvas1;
     public GameObject mg_example;
 
-    private bool done;
+    private bool onGame;
+    private GameObject instance;
     
     // Start is called before the first frame update
     void Start()
     {
-        done = false;
+        onGame = false;
     }
 
     // Update is called once per frame
     void Update()
     {
-
+        if (onGame)
+        {
+            if (!instance)
+            {
+                canvas1.SetActive(true);
+                onGame = false;
+            }
+        }
 
     }
 
@@ -27,8 +35,9 @@ public class MiniGamesManager : MonoBehaviour
         if (other.tag.Equals("MiniGame"))
         {
             canvas1.SetActive(false);
-            Instantiate(mg_example);
-            Destroy(other);
+            Destroy(other.gameObject);
+            instance = Instantiate(mg_example);
+            onGame = true;
         }
  
     }

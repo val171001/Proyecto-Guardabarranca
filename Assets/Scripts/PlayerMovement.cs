@@ -5,6 +5,7 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public GameObject player;
+    public GameObject canvas1;
     public float speed;
 
     private bool movement = true;
@@ -12,7 +13,7 @@ public class PlayerMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
- 
+
     }
 
     // Update is called once per frame
@@ -26,6 +27,11 @@ public class PlayerMovement : MonoBehaviour
             player.transform.position += player.transform.forward * speed * v * Time.deltaTime;
 
             player.transform.Rotate(new Vector3(0, h * Time.timeScale, 0));
+        }
+
+        if (canvas1.activeSelf == false)
+        {
+
         }
 
     }
