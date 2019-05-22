@@ -8,6 +8,7 @@ public class PauseMenu : MonoBehaviour
 {
     public GameObject canvas1;
     public GameObject panel1;
+    public GameObject galeria;
     public Button btn1;
 
     private bool pauseOn = false;
@@ -42,6 +43,12 @@ public class PauseMenu : MonoBehaviour
     {
         pause();
     }
+
+    public void gal()
+    {
+        Instantiate(galeria);
+    }
+
 
     public void returnToMenu()
     {
