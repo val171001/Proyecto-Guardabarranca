@@ -10,9 +10,18 @@ public class MiniGamesAnsManager : MonoBehaviour
 
     public GameObject correct;
     public GameObject incorrect;
+    private GameObject player;
+
+    private void Start()
+    {
+        player = GameObject.Find("Player");
+    }
 
     public void correctAnswer()
     {
+        int beforeAnsw = player.GetComponent<MiniGamesManager>().getCorrectAnsw();
+        player.GetComponent<MiniGamesManager>().setCorrectAnsw(beforeAnsw + 1);
+
         showing = Instantiate(correct);
         countIt = true;
     }

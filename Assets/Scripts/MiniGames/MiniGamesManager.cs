@@ -7,6 +7,9 @@ public class MiniGamesManager : MonoBehaviour
     public GameObject canvas1;
     public GameObject jstick;
 
+    public int resCorrectas = 0;
+    public int nivel = 0;
+
     public GameObject mg_1;
     public GameObject mg_2;
     public GameObject mg_3;
@@ -23,6 +26,7 @@ public class MiniGamesManager : MonoBehaviour
     private List<GameObject> temporalList = new List<GameObject>();
     private List<GameObject> minigames = new List<GameObject>();
     private List<GameObject> usedMinigames = new List<GameObject>();
+
 
     // Start is called before the first frame update
     void Start()
@@ -69,6 +73,12 @@ public class MiniGamesManager : MonoBehaviour
             }
         }
 
+        if (resCorrectas >= 10)
+        {
+            nivel += 1;
+            resCorrectas = 0;
+        }
+
     }
 
     private void OnTriggerEnter(Collider other)
@@ -94,5 +104,19 @@ public class MiniGamesManager : MonoBehaviour
 
         }
  
+    }
+
+    public int getCorrectAnsw() {
+        return resCorrectas;
+    }
+
+    public int getLevel()
+    {
+        return nivel;
+    }
+
+    public void setCorrectAnsw(int x)
+    {
+        resCorrectas = x;
     }
 }

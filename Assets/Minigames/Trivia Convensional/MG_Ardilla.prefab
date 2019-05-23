@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 7174148460908062343}
   - component: {fileID: 3661359004992608228}
   m_Layer: 5
-  m_Name: MG_Example
+  m_Name: MG_Ardilla
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

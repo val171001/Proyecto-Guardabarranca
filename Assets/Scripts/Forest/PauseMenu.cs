@@ -8,6 +8,7 @@ public class PauseMenu : MonoBehaviour
 {
     public GameObject canvas1;
     public GameObject panel1;
+    public GameObject puntos;
     public GameObject galeria;
     public Button btn1;
 
@@ -47,6 +48,12 @@ public class PauseMenu : MonoBehaviour
     public void gal()
     {
         Instantiate(galeria);
+    }
+
+    public void puntuaciones()
+    {
+        GameObject inst =  Instantiate(puntos);
+        inst.SetActive(true);
     }
 
 
