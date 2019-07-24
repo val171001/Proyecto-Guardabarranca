@@ -21,11 +21,12 @@ public class PlayerMovement : MonoBehaviour
     {
         if (movement)
         {
+            // Gets location of joystick
             float h = transform.localPosition.x / 50;
             float v = transform.localPosition.y / 50;
 
+            // Transorms position and rotation
             player.transform.position += player.transform.forward * speed * v * Time.deltaTime;
-
             player.transform.Rotate(new Vector3(0, h * Time.timeScale, 0));
         }
 
