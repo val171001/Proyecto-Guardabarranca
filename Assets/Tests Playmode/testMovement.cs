@@ -7,7 +7,7 @@ using UnityEngine.SceneManagement;
 
 namespace Tests
 {
-    public class Movementx
+    public class Movementy
     {
 
         private GameObject controls;
