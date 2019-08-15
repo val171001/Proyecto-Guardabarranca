@@ -14,6 +14,12 @@ notifications:
     on_success: never
     on_failure: change
 
+# Make scripts executable
+before_install:
+- chmod +x ./ScriptsCI/install.sh
+- chmod +x ./ScriptsCI/build.sh
+- chmod +x ./ScriptsCI/after_build.sh
+
 # Install Unity
 install:
 - sudo -E ./ScriptsCI/install.sh
