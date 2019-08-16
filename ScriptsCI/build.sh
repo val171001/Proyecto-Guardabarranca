@@ -7,10 +7,10 @@ echo "Running playmode tests for ${PROJECT_NAME}"
 	-batchmode \
 	-nographics \
 	-silent-crashes \
-	-logFile $(pwd)/Logs/PlayModeTests.log \
 	-projectPath "$(pwd)" \
 	-runTests \
     -testPlatform playmode \
+	-testResults $(pwd)/Logs/TestResults.xml \
 	-quit
 
 
