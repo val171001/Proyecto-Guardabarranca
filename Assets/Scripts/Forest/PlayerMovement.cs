@@ -30,11 +30,12 @@ public class PlayerMovement : MonoBehaviour
             player.transform.Rotate(new Vector3(0, h * Time.timeScale, 0));
         }
 
-        if (canvas1.activeSelf == false)
-        {
 
-        }
+    }
 
+    private void OnDisable()
+    {
+        transform.localPosition = new Vector3(0f, 0f);
     }
 
 }
