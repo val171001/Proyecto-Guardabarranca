@@ -10,6 +10,6 @@ brew install aria2
 curl --output Unity.torrent https://download.unity3d.com/download_unity/ca4d5af0be6f/Unity-2019.2.1f1.torrent
 echo $(ls)
 
-# Dowload unity files using torrent and aria2
-aria2c Unity.torrent
+# Dowload macos unity files using torrent and aria2
+aria2c --select-file=3,4 Unity.torrent
 echo $(ls)
