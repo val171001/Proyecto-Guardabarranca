@@ -1,20 +1,23 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class MiniGamesAnsManager : MonoBehaviour
 {
-    private float Timer;
+    private float timer;
+    private float time_game;
     private bool countIt = false;
-    private GameObject showing;
 
-    public GameObject correct;
-    public GameObject incorrect;
+    private Animator ani;
+    private Image img_timer;
     private GameObject player;
 
     private void Start()
     {
         player = GameObject.Find("Player");
+        img_timer = transform.GetChild(9).gameObject.GetComponent<Image>();
+        ani = GetComponent<Animator>();
     }
 
     public void correctAnswer()
@@ -22,26 +25,35 @@ public class MiniGamesAnsManager : MonoBehaviour
         int beforeAnsw = player.GetComponent<MiniGamesManager>().getCorrectAnsw();
         player.GetComponent<MiniGamesManager>().setCorrectAnsw(beforeAnsw + 1);
 
-        showing = Instantiate(correct);
+        ani.SetBool("correcto", true);
         countIt = true;
     }
 
     public void incorrectAnswer()
     {
-        showing = Instantiate(incorrect);
+        ani.SetBool("incorrecto", true);
         countIt = true;
     }
 
     private void Update()
     {
+        time_game += Time.deltaTime;
+        img_timer.fillAmount = 1 - time_game/20f;
+
+        if (img_timer.fillAmount <= 0)
+        {
+            ani.SetBool("tiempo", true);
+            countIt = true;
+        }
+            
+
         if (countIt)
         {
-            Timer += Time.deltaTime;
+            timer += Time.deltaTime;
         }
 
-        if (Timer > 2.5f)
+        if (timer > 2f)
         {
-            Destroy(showing);
             Destroy(gameObject);
         }
     }

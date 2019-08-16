@@ -10,20 +10,8 @@ public class MiniGamesManager : MonoBehaviour
     public int resCorrectas = 0;
     public int nivel = 0;
 
-    public GameObject mg_1;
-    public GameObject mg_2;
-    public GameObject mg_3;
-    public GameObject mg_4;
-    public GameObject mg_5;
-    public GameObject mg_6;
-    public GameObject mg_7;
-    public GameObject mg_8;
-    public GameObject mg_9;
-    public GameObject mg_10;
-    
-    private bool onGame;
+    private bool onGame = false;
     private GameObject instance;
-    private List<GameObject> temporalList = new List<GameObject>();
     private List<GameObject> minigames = new List<GameObject>();
     private List<GameObject> usedMinigames = new List<GameObject>();
 
@@ -31,20 +19,16 @@ public class MiniGamesManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        temporalList.Add(mg_1);
-        temporalList.Add(mg_2);
-        temporalList.Add(mg_3);
-        temporalList.Add(mg_4);
-        temporalList.Add(mg_5);
-        temporalList.Add(mg_6);
-        temporalList.Add(mg_7);
-        temporalList.Add(mg_8);
-        temporalList.Add(mg_9);
-        temporalList.Add(mg_10);
 
-        minigames = randomList(temporalList);
+        Object[] temporalList = Resources.LoadAll("Minigames/Trivia_Convencional", typeof(GameObject));
 
-        onGame = false;
+        for (int i = 0; i < temporalList.Length; i++)
+        {
+            minigames.Add(temporalList[i] as GameObject);
+        }
+
+        minigames = randomList(minigames);
+
     }
 
     List<GameObject> randomList(List<GameObject> lista)

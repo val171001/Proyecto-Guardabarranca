@@ -1750,16 +1750,6 @@ MonoBehaviour:
   jstick: {fileID: 583578590}
   resCorrectas: 0
   nivel: 0
-  mg_1: {fileID: 3661359004992608231, guid: b3ff0acc0d9d66a4abac5bd1d753ad69, type: 3}
-  mg_2: {fileID: 1918609467306896906, guid: aac53a5f6f3457c4cb63e86f684a8e94, type: 3}
-  mg_3: {fileID: 7221425719663151448, guid: 788c82b113d3d3e4fa71d0c43ef2aecf, type: 3}
-  mg_4: {fileID: 4142238433088266376, guid: febcd546815da9b48b31eb195453c469, type: 3}
-  mg_5: {fileID: 4571503985104871084, guid: 989d4c73dd66d404296cf5cebdf05f3c, type: 3}
-  mg_6: {fileID: 2815099495692931615, guid: 2f79258a4aa89444b9e49157ecc48ddd, type: 3}
-  mg_7: {fileID: 6241863780850682202, guid: 9b459b0b5b2f5f94db69dab9c0937b20, type: 3}
-  mg_8: {fileID: 4052379015822420722, guid: f40c731d9db827e48b74555b52eb62b6, type: 3}
-  mg_9: {fileID: 8207345229309943779, guid: 206cfe9ceb4c56347ba928b8f3911909, type: 3}
-  mg_10: {fileID: 2107237743044096355, guid: fc0bb1735fe12a846a602c77df406e38, type: 3}
 --- !u!4 &350198543 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 4549644435828676, guid: c717f817a496cf247a92b830b355a407,
@@ -3634,6 +3624,10 @@ PrefabInstance:
     - target: {fileID: 1046869630431942, guid: c717f817a496cf247a92b830b355a407, type: 3}
       propertyPath: m_Name
       value: Player
+      objectReference: {fileID: 0}
+    - target: {fileID: 1046869630431942, guid: c717f817a496cf247a92b830b355a407, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 4549644435828676, guid: c717f817a496cf247a92b830b355a407, type: 3}
       propertyPath: m_LocalPosition.x
@@ -7745,6 +7739,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Controls
+      objectReference: {fileID: 0}
+    - target: {fileID: 7436167821293538744, guid: 9cf7ad8482689154282a0f098009c60f,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 7436167821293538748, guid: 9cf7ad8482689154282a0f098009c60f,
         type: 3}
