@@ -10,7 +10,7 @@ echo "Running playmode tests for ${PROJECT_NAME}"
 	-logFile $(pwd)/Logs/PlayModeTests.log \
 	-projectPath "$(pwd)" \
 	-runTests \
-    -testPlatform playmode
+    -testPlatform playmode \
 	-editorTestsResultFile $(pwd)/Logs/TestResults.xml \
 	-quit
 
