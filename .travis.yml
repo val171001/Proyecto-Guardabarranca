@@ -22,7 +22,7 @@ before_install:
 
 # Install Unity
 install:
-- sudo -E ./ScriptsCI/install.sh
+- ./ScriptsCI/install.sh
 
 # Run tests and build
 script:
