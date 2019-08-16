@@ -36,3 +36,5 @@ after_success:
 env:
   global:
   - PROJECT_NAME="Proyecto-Guardabarranca"
+  - UNITY_TORRENT_URL="https://download.unity3d.com/download_unity/ca4d5af0be6f/Unity-2019.2.1f1.torrent"
+  
