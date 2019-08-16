@@ -1,6 +1,6 @@
 #! /bin/sh
 
-funciton after_task() {
+function after_task() {
     if [ $1 -ne 0 ]; then
         echo $2
         exit $1
