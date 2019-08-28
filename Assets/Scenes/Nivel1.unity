@@ -1180,7 +1180,7 @@ PrefabInstance:
     - target: {fileID: 5397186089793086599, guid: da8f2ca319e899e46a69926afef61c22,
         type: 3}
       propertyPath: speed
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: da8f2ca319e899e46a69926afef61c22, type: 3}
@@ -1365,6 +1365,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AreaSize.x
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2176460596042710906, guid: 756a08288aeab4848b3c6570343d31c4,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 756a08288aeab4848b3c6570343d31c4, type: 3}
@@ -1915,6 +1920,11 @@ PrefabInstance:
         type: 3}
       propertyPath: far clip plane
       value: 100
+      objectReference: {fileID: 0}
+    - target: {fileID: 4089186502232524680, guid: ec61108afea5cf245b0f2e97c8b925ab,
+        type: 3}
+      propertyPath: m_IsTrigger
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: ec61108afea5cf245b0f2e97c8b925ab, type: 3}

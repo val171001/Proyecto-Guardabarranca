@@ -77,12 +77,14 @@ public class MiniGamesManager : MonoBehaviour
 
     }
 
-    /* OnTriggerEnter(Collider)
+    /* OnCollisionEnter(Collision)
      * sistema de colisiones para los minigames. Llama un nuevo minigame
      * cada vez que se colisiona con un objeto con tag "Minigame"
      */
-    private void OnTriggerEnter(Collider other)
+    private void OnCollisionEnter (Collision col)
     {
+        GameObject other = col.gameObject;
+           
         // condicion que el tag sea "Minigame"
         if (other.tag.Equals("MiniGame"))
         {
