@@ -21,7 +21,7 @@ cat $(pwd)/Logs/TestResults.xml
 # Abort on failed tests
 if [ $TEST_SUCCESS -ne 0 ]; then
     echo "Tests failed"
-    exit 0
+    exit $TEST_SUCCESS
 fi
 
 # Build APK
