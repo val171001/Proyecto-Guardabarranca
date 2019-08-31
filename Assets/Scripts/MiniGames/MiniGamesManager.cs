@@ -4,49 +4,46 @@ using UnityEngine;
 
 public class MiniGamesManager : MonoBehaviour
 {
+    // Objetos publicos
     public GameObject canvas1;
     public GameObject jstick;
 
-    public int resCorrectas = 0;
-    public int nivel = 0;
+    // Variables publicas
+    public int resCorrectas;
+    public int nivel;
+    private bool onGame = false;
 
-    public GameObject mg_1;
-    public GameObject mg_2;
-    public GameObject mg_3;
-    public GameObject mg_4;
-    public GameObject mg_5;
-    public GameObject mg_6;
-    public GameObject mg_7;
-    public GameObject mg_8;
-    public GameObject mg_9;
-    public GameObject mg_10;
-    
-    private bool onGame;
+    // Objetos privados
     private GameObject instance;
-    private List<GameObject> temporalList = new List<GameObject>();
     private List<GameObject> minigames = new List<GameObject>();
     private List<GameObject> usedMinigames = new List<GameObject>();
 
 
-    // Start is called before the first frame update
+    /* Start() (first method called) 
+     * Se inicializa la lista de minijuegos a mostrar y se randomiza.
+     */
     void Start()
     {
-        temporalList.Add(mg_1);
-        temporalList.Add(mg_2);
-        temporalList.Add(mg_3);
-        temporalList.Add(mg_4);
-        temporalList.Add(mg_5);
-        temporalList.Add(mg_6);
-        temporalList.Add(mg_7);
-        temporalList.Add(mg_8);
-        temporalList.Add(mg_9);
-        temporalList.Add(mg_10);
+        // Se buscan los minijuegos en la carpeta de Minigames/Trivia_Convencional y se cargan.
+        Object[] temporalList = Resources.LoadAll("Minigames/Trivia_Convencional", typeof(GameObject));
 
-        minigames = randomList(temporalList);
+        // Se agregan los minijuegos a la lista minigames.
+        for (int i = 0; i < temporalList.Length; i++)
+        {
+            minigames.Add(temporalList[i] as GameObject);
+        }
 
-        onGame = false;
+        // Se randomiza la lista.
+        minigames = randomList(minigames);
+
+        resCorrectas = PlayerPrefs.GetInt("resCorrectas", 0);
+        nivel = PlayerPrefs.GetInt("nivel", 1);
+
     }
 
+    /* randomList(List<GameObject>)
+     * metodo utilizado para randomizar listas y devolver una lista randomizada.
+     */
     List<GameObject> randomList(List<GameObject> lista)
     {
         for (int i = 0; i < lista.Count; i++)
@@ -60,9 +57,10 @@ public class MiniGamesManager : MonoBehaviour
         return lista;
     }
 
-    // Update is called once per frame
+    // Update() (Metodo llamado cada frame)
     void Update()
     {
+        // si el juego esta prendido
         if (onGame)
         {
             if (!instance)
@@ -73,6 +71,7 @@ public class MiniGamesManager : MonoBehaviour
             }
         }
 
+        // cambio de nivel
         if (resCorrectas >= 10)
         {
             nivel += 1;
@@ -81,18 +80,36 @@ public class MiniGamesManager : MonoBehaviour
 
     }
 
-    private void OnTriggerEnter(Collider other)
+    /* OnCollisionEnter(Collision)
+     * sistema de colisiones para los minigames. Llama un nuevo minigame
+     * cada vez que se colisiona con un objeto con tag "Minigame"
+     */
+    private void OnCollisionEnter (Collision col)
     {
+        GameObject other = col.gameObject;
+           
+        // condicion que el tag sea "Minigame"
         if (other.tag.Equals("MiniGame"))
         {
+            // Se desactivan los canvas de movimiento
             canvas1.SetActive(false);
             jstick.SetActive(false);
+
+            // Se destruye el objeto con el que se coliciono
             Destroy(other.gameObject);
+
+            // Se instancia un nuevo minijuego
             instance = Instantiate(minigames[0]);
             usedMinigames.Add(minigames[0]);
+
+            // Se remueve el minijuego usado y se empieza el juego.
             minigames.RemoveAt(0);
             onGame = true;
 
+
+            /* En el caso que se quede sin nuevos minijuegos se reutilizan los
+             * juegos previos.
+             */ 
             if (minigames.Count == 0)
             {
                 for (int i = 0; i < usedMinigames.Count; i++)
@@ -106,17 +123,28 @@ public class MiniGamesManager : MonoBehaviour
  
     }
 
+    /* getCorrectAnsw() PUBLIC
+     * regresa la cantidad de respuestas correctas.
+     */
     public int getCorrectAnsw() {
         return resCorrectas;
     }
 
+
+    /* getLevel() PUBLIC
+     * regresa el nivel del jugador.
+     */
     public int getLevel()
     {
         return nivel;
     }
 
+    /* setCorrectAnsw(int) PUBLIC
+     * establece la cantidad de respuestas correctas.
+     */
     public void setCorrectAnsw(int x)
     {
         resCorrectas = x;
+        PlayerPrefs.SetInt("resCorrectas", x);
     }
 }
