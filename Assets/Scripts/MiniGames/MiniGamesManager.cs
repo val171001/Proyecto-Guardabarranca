@@ -9,8 +9,8 @@ public class MiniGamesManager : MonoBehaviour
     public GameObject jstick;
 
     // Variables publicas
-    public int resCorrectas = 0;
-    public int nivel = 0;
+    public int resCorrectas;
+    public int nivel;
     private bool onGame = false;
 
     // Objetos privados
@@ -35,6 +35,9 @@ public class MiniGamesManager : MonoBehaviour
 
         // Se randomiza la lista.
         minigames = randomList(minigames);
+
+        resCorrectas = PlayerPrefs.GetInt("resCorrectas", 0);
+        nivel = PlayerPrefs.GetInt("nivel", 1);
 
     }
 
@@ -142,5 +145,6 @@ public class MiniGamesManager : MonoBehaviour
     public void setCorrectAnsw(int x)
     {
         resCorrectas = x;
+        PlayerPrefs.SetInt("resCorrectas", x);
     }
 }

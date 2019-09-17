@@ -18,7 +18,7 @@ public class PuntosCtr : MonoBehaviour
      */
     private void Start()
     {
-        name.text = name.text + " default";
+        name.text = name.text + " Diego";
         level.text = level.text + " " + player.GetComponent<MiniGamesManager>().getLevel();
         points.text = points.text + " " + player.GetComponent<MiniGamesManager>().getCorrectAnsw();
     }
