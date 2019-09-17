@@ -1,8 +1,4 @@
-﻿// Universidad del Valle de Guatemala
-// Programacion de plataformas moviles y juegos
-// File: Fernano.cs
-// Script para controlar al personaje 
-// Autores: Fernando Hengstenberg 17699 y David Valenzuela 171001
+﻿
 
 // Librerias necesarias
 using System.Collections;
@@ -103,7 +99,7 @@ public class Fernando : MonoBehaviour
     }
 
     // Al colisionar
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnCollisionEnter2D(Collision2D collisiosn)
     {
         // Si es un enemigo
         if (collision.gameObject.tag == "Enemy")

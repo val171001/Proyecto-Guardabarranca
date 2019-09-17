@@ -1,8 +1,4 @@
-﻿// Universidad del Valle de Guatemala
-// Programacion de plataformas moviles y juegos
-// File: higscore.cs
-// Script para controlar al enemigo 
-// Autores: Fernando Hengstenberg 17699 y David Valenzuela 171001
+﻿
 
 // Importamos librerias necesarias
 using System.Collections;

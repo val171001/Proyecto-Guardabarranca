@@ -1,8 +1,4 @@
-﻿// Universidad del Valle de Guatemala
-// Programacion de plataformas moviles y juegos
-// File: ButtonChange.cs
-// Acciones al presionar el boton para inciar el juego
-// Autores: Fernando Hengstenberg 17699 y David Valenzuela 171001
+﻿
 
 // Importamos clases necesarias
 using System.Collections;
