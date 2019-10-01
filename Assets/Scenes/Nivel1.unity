@@ -94,8 +94,8 @@ LightmapSettings:
     m_PVRFilteringAtrousPositionSigmaDirect: 0.5
     m_PVRFilteringAtrousPositionSigmaIndirect: 2
     m_PVRFilteringAtrousPositionSigmaAO: 1
-    m_ShowResolutionOverlay: 1
     m_ExportTrainingData: 0
+    m_TrainingDataDestination: TrainingData
   m_LightingDataAsset: {fileID: 0}
   m_UseShadowmask: 1
 --- !u!196 &4
@@ -194,22 +194,22 @@ PrefabInstance:
     - target: {fileID: 137026728700541394, guid: 33cd11b498fa29444b5131fb04953851,
         type: 3}
       propertyPath: m_AABB.m_Extent.z
-      value: 5
+      value: 1.875
       objectReference: {fileID: 0}
     - target: {fileID: 137026728700541394, guid: 33cd11b498fa29444b5131fb04953851,
         type: 3}
       propertyPath: m_AABB.m_Extent.x
-      value: 4.9999604
+      value: 0.9375
       objectReference: {fileID: 0}
     - target: {fileID: 137026728700541394, guid: 33cd11b498fa29444b5131fb04953851,
         type: 3}
       propertyPath: m_AABB.m_Center.x
-      value: -0.00018310547
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 137026728700541394, guid: 33cd11b498fa29444b5131fb04953851,
         type: 3}
       propertyPath: m_AABB.m_Extent.y
-      value: 3.3815522
+      value: 0.000000074505806
       objectReference: {fileID: 0}
     - target: {fileID: 137026728700541394, guid: 33cd11b498fa29444b5131fb04953851,
         type: 3}
@@ -373,7 +373,7 @@ Terrain:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 284543821}
   m_Enabled: 1
-  serializedVersion: 4
+  serializedVersion: 5
   m_TerrainData: {fileID: 15600000, guid: 0a90f2a18543e00449ae61fc6b611973, type: 2}
   m_TreeDistance: 5000
   m_TreeBillboardDistance: 50
@@ -389,12 +389,7 @@ Terrain:
   m_DrawInstanced: 0
   m_DrawTreesAndFoliage: 1
   m_ReflectionProbeUsage: 1
-  m_MaterialType: 0
-  m_LegacySpecular:
-    serializedVersion: 2
-    rgba: 4286545791
-  m_LegacyShininess: 0.078125
-  m_MaterialTemplate: {fileID: 0}
+  m_MaterialTemplate: {fileID: 10652, guid: 0000000000000000f000000000000000, type: 0}
   m_BakeLightProbesForTrees: 1
   m_PreserveTreePrototypeLayers: 0
   m_DeringLightProbesForTrees: 1
@@ -935,7 +930,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1010234939}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 1077351063, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Script: {fileID: 11500000, guid: 4f231c4fb786f3946a6b90b886c48677, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_HorizontalAxis: Horizontal
@@ -954,7 +949,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1010234939}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: -619905303, guid: f70555f144d8491a825f0804e09c671c, type: 3}
+  m_Script: {fileID: 11500000, guid: 76c392e42b5098c458856cdf6ecaaaa1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   m_FirstSelected: {fileID: 0}
@@ -1181,6 +1176,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Controls
+      objectReference: {fileID: 0}
+    - target: {fileID: 5397186089039234722, guid: da8f2ca319e899e46a69926afef61c22,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 5397186089039234726, guid: da8f2ca319e899e46a69926afef61c22,
         type: 3}
@@ -1627,6 +1627,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: PauseMenu
       objectReference: {fileID: 0}
+    - target: {fileID: 8001488289242816351, guid: 00a4b9226df5cee4b9ede27425f3fed4,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8001488289242816347, guid: 00a4b9226df5cee4b9ede27425f3fed4,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -1742,6 +1747,46 @@ PrefabInstance:
       propertyPath: player
       value: 
       objectReference: {fileID: 153057204}
+    - target: {fileID: 8001488289295152357, guid: 00a4b9226df5cee4b9ede27425f3fed4,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -137
+      objectReference: {fileID: 0}
+    - target: {fileID: 8001488289295152357, guid: 00a4b9226df5cee4b9ede27425f3fed4,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: -75
+      objectReference: {fileID: 0}
+    - target: {fileID: 8001488289295152357, guid: 00a4b9226df5cee4b9ede27425f3fed4,
+        type: 3}
+      propertyPath: m_AnchorMin.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8001488289295152357, guid: 00a4b9226df5cee4b9ede27425f3fed4,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8001488289295152355, guid: 00a4b9226df5cee4b9ede27425f3fed4,
+        type: 3}
+      propertyPath: m_Color.r
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8001488289295152355, guid: 00a4b9226df5cee4b9ede27425f3fed4,
+        type: 3}
+      propertyPath: m_Color.g
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8001488289295152355, guid: 00a4b9226df5cee4b9ede27425f3fed4,
+        type: 3}
+      propertyPath: m_Color.b
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8001488289295152355, guid: 00a4b9226df5cee4b9ede27425f3fed4,
+        type: 3}
+      propertyPath: m_Color.a
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 00a4b9226df5cee4b9ede27425f3fed4, type: 3}
 --- !u!1001 &1939716744
