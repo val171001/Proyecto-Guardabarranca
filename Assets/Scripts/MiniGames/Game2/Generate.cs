@@ -9,7 +9,7 @@ public class Generate : MonoBehaviour
 	// Use this for initialization
 	void Start()
 	{
-		InvokeRepeating("CreateObstacle", 1f, 1.5f);
+		InvokeRepeating("CreateObstacle", 1f, 3.5f);
 	}
 
 	void CreateObstacle()
