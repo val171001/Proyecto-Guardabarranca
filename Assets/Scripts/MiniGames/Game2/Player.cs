@@ -27,8 +27,9 @@ public class Player : MonoBehaviour
 	}
 
 	// Die by collision
-	void OnCollisionEnter2D(Collision2D other)
+	void OnCollisionEnter(Collision other)
 	{
+		Debug.Log("kkkk");
 		Die();
 	}
 
