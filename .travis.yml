@@ -1,40 +1,58 @@
-language: generic
-
-# Use Mac OSX for bash support
-os: osx
-
-# Run only on master branch
-branches:
-  only:
-  - master
-
-# Notify on failure
-notifications:
-  email:
-    on_success: never
-    on_failure: change
-
-# Make scripts executable
-before_install:
-- chmod +x ./ScriptsCI/install.sh
-- chmod +x ./ScriptsCI/build.sh
-- chmod +x ./ScriptsCI/after_build.sh
-
-# Install Unity
-install:
-- ./ScriptsCI/install.sh
-
-# Run tests and build
-script:
-- sudo -E ./ScriptsCI/build.sh
-
-# Create release for build
-after_success:
-- sudo -E ./ScriptsCI/after_build.sh
-
-# Env vars
+sudo: required
+language: bash
 env:
   global:
-  - PROJECT_NAME="Proyecto-Guardabarranca"
-  - UNITY_TORRENT_URL="https://download.unity3d.com/download_unity/ca4d5af0be6f/Unity-2019.2.1f1.torrent"
-  
+  - IMAGE_NAME=gableroux/unity3d:2018.2.6f1
+  - BUILD_NAME=ExampleProjectName
+services:
+- docker
+before_install:
+- openssl aes-256-cbc -K $encrypted_82766e747237_key -iv $encrypted_82766e747237_iv
+  -in Unity_v2018.x.ulf.enc -out ./Unity_v2018.x.ulf -d
+- export UNITY_LICENSE_CONTENT=`cat Unity_v2018.x.ulf`
+- rm Unity_v2018.x.ulf
+- docker pull $IMAGE_NAME
+jobs:
+  include:
+  - stage: test
+    script: "chmod +x ./ci/docker_test.sh && ./ci/docker_test.sh"
+    env: TEST_PLATFORM=editmode
+    addons:
+      artifacts:
+        target_paths:
+        - "$(pwd)/$TEST_PLATFORM-results.xml"
+  - stage: test
+    script: "chmod +x ./ci/docker_test.sh && ./ci/docker_test.sh"
+    env: TEST_PLATFORM=playmode
+    addons:
+      artifacts:
+        target_paths:
+        - "$(pwd)/$TEST_PLATFORM-results.xml"
+  - stage: build
+    env: BUILD_TARGET=StandaloneLinux64
+    script: "chmod +x ./ci/docker_build.sh && ./ci/docker_build.sh"
+    addons:
+      artifacts:
+        target_paths:
+        - "./Builds/"
+  - stage: build
+    env: BUILD_TARGET=StandaloneOSX
+    script: "chmod +x ./ci/docker_build.sh && ./ci/docker_build.sh"
+    addons:
+      artifacts:
+        target_paths:
+        - "./Builds/"
+  - stage: build
+    env: BUILD_TARGET=StandaloneWindows64
+    script: "chmod +x ./ci/docker_build.sh &&./ci/docker_build.sh"
+    addons:
+      artifacts:
+        target_paths:
+        - "./Builds/"
+  - stage: build
+    env: BUILD_TARGET=WebGL
+    script: "chmod +x ./ci/docker_build.sh && ./ci/docker_build.sh"
+    addons:
+      artifacts:
+        target_paths:
+        - "./Builds/"
