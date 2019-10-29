@@ -1,5 +1,10 @@
 #!/usr/bin/env bash
 
+set -e
+set -x
+mkdir -p /root/.cache/unity3d
+mkdir -p /root/.local/share/unity3d/Unity/
+set +x
 
 UPPERCASE_BUILD_TARGET=${BUILD_TARGET^^};
 
