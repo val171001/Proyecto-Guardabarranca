@@ -24,12 +24,13 @@ LICENSE="UNITY_LICENSE_CONTENT_"$UPPERCASE_BUILD_TARGET
 if [ -z "${!LICENSE}" ]
 then
     echo "$LICENSE env var not found, using default UNITY_LICENSE_CONTENT env var"
-    LICENSE=UNITY_LICENSE_CONTENT
+    LICENSE=$UNITY_LICENSE_CONTENT
 else
     echo "Using $LICENSE env var"
 fi
 
 echo "Writing $LICENSE to license file /root/.local/share/unity3d/Unity/Unity_lic.ulf"
+echo "${!LICENSE}"
 echo "${!LICENSE}" | tr -d '\r' > /root/.local/share/unity3d/Unity/Unity_lic.ulf
 
 set -x
